@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3798d8686027d49af75e4a712f9fa6, type: 3}
+  m_Name: DecoyStamp
+  m_EditorClassIdentifier: Assembly-CSharp::DropItemDefinition
+  itemId: DecoyStamp
+  displayName: Decoy Stamp
+  effectType: 6
+  prefab: {fileID: 7791139117041607405, guid: eebd8dd2296babd41a969a47c1590127, type: 3}
+  icon: {fileID: 21300000, guid: 12a5881febcc442b9e77be7348a86989, type: 3}
+  weight: 1
+  speedMultiplier: 1.5
+  duration: 8
+  experienceAmount: 0
+  cooldownReductionSeconds: 0
+  clearCooldown: 0
+  grantPickupExperience: 1
+  useRadius: 1
+  paintRadius: 0

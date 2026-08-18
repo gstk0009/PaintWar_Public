@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3798d8686027d49af75e4a712f9fa6, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: Assembly-CSharp::DropItemDefinition
+  itemId: Shield
+  displayName: Shield
+  effectType: 8
+  prefab: {fileID: 4450632304098865597, guid: 1ae720734b7fc6841813b29bd3cdc5bb, type: 3}
+  icon: {fileID: 21300000, guid: 170f6a349c4bb664f8084c4c1d16499e, type: 3}
+  weight: 1
+  speedMultiplier: 1.5
+  duration: 5
+  experienceAmount: 0
+  cooldownReductionSeconds: 0
+  clearCooldown: 0
+  grantPickupExperience: 1
+  useRadius: 1
+  paintRadius: 0

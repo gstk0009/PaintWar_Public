@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3798d8686027d49af75e4a712f9fa6, type: 3}
+  m_Name: SpeedBoost
+  m_EditorClassIdentifier: Assembly-CSharp::DropItemDefinition
+  itemId: SpeedBoost
+  displayName: Speed Boost
+  effectType: 0
+  prefab: {fileID: 7370043300670028658, guid: 19b7e95a091652640b4df605bec6a161, type: 3}
+  icon: {fileID: 0}
+  weight: 1
+  speedMultiplier: 1.5
+  duration: 3
+  experienceAmount: 0
+  cooldownReductionSeconds: 0
+  clearCooldown: 0
+  grantPickupExperience: 1
+  useRadius: 5
+  paintRadius: 1

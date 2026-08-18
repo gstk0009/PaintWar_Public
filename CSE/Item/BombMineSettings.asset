@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c18ea3cfdc4ef4b98d9e8f3fb53b25, type: 3}
+  m_Name: BombMineSettings
+  m_EditorClassIdentifier: 
+  fuseSeconds: 5
+  crossRadius: 2
+  levelMaxActiveMines:
+  - 2
+  - 3
+  - 3
+  - 4
+  - 4
+  levelCrossRadii:
+  - 2
+  - 3
+  - 4
+  - 4
+  - 4
+  chainExplosionDelaySeconds: 0.5
+  chainLinkWidthRatio: 0.045
+  chainLinkPulseSpeed: 4
+  comboGlowWidthRatio: 0.075
+  comboGlowPulseSpeed: 6.5
+  comboStunSeconds:
+  - 0.5
+  - 1
+  - 2
+  neutralizeOwnedTilesOnHit: 3
+  visualPrefab: {fileID: 1639551072819675097, guid: 7ac641d4d8122d34f9d220c4766f841c, type: 3}

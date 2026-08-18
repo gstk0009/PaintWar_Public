@@ -1,0 +1,36 @@
+/// <summary>
+/// 라운드 시스템이 현재 어느 단계에 있는지 나타냅니다.
+/// </summary>
+public enum GamePhase
+{
+    /// <summary>
+    /// 참가자를 기다리거나 로컬 테스트용 봇을 채우기 전의 대기 단계입니다.
+    /// </summary>
+    MatchWaiting,
+
+    /// <summary>
+    /// 각자 배정된 파밍 구역 안에서만 타일을 점령하는 단계입니다.
+    /// </summary>
+    Farming,
+
+    /// <summary>
+    /// 생존 참가자가 전체 맵을 자유롭게 점령할 수 있는 단계입니다.
+    /// </summary>
+    Battle,
+
+    /// <summary>
+    /// 라운드 종료 후 탈락자를 보여주고 처리하는 단계입니다.
+    /// </summary>
+    RoundResult,
+
+    /// <summary>
+    /// 최종 라운드가 끝나고 승자가 확정된 단계입니다.
+    /// </summary>
+    GameOver,
+
+    /// <summary>
+    /// 다음 라운드의 배치와 시작 연출은 진행 중이지만 이동과 타일 점령은 아직 잠긴 상태입니다.
+    /// 네트워크 클라이언트가 페이드 아웃을 끝내기 전에 서버 봇이 먼저 움직이지 않도록 사용합니다.
+    /// </summary>
+    RoundStarting
+}

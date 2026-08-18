@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ef5eced96cb6642bc32870bbcb83ad, type: 3}
+  m_Name: DropItemCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::DropItemCatalog
+  items:
+  - {fileID: 11400000, guid: 33b4d24c52e8e7c49966309ce48558b0, type: 2}
+  - {fileID: 11400000, guid: 2e9b584332706854aaac75d236317b5b, type: 2}
+  - {fileID: 11400000, guid: 5ed4073bf8a4220488b87f317bcc0967, type: 2}
+  - {fileID: 11400000, guid: b239e685f6f723f4fbf5342ff5750b3b, type: 2}
+  - {fileID: 11400000, guid: 193fec6591fca5444b3d86500cc0c375, type: 2}
+  - {fileID: 11400000, guid: e7dec862207816b4db0b4cd68af97643, type: 2}
+  - {fileID: 11400000, guid: 58b7b7b7905f0364baae766b84d5ba2d, type: 2}

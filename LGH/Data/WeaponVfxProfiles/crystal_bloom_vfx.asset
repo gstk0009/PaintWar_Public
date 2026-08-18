@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4094c4f2669b4b33bd93ca4dad98bbe8, type: 3}
+  m_Name: crystal_bloom_vfx
+  m_EditorClassIdentifier: Assembly-CSharp::MagicWeaponVfxProfile
+  castMarkerPrefab: {fileID: 8791293371309456441, guid: 1b8442fbb8e2fef478b0ce4080f0cc60, type: 3}
+  telegraphTilePrefab: {fileID: 0}
+  impactPrefab: {fileID: 8622447215054929393, guid: 473d7374304b480429d01991fb7815d0, type: 3}
+  casterAuraPrefab: {fileID: 0}
+  hitPrefab: {fileID: 0}
+  markerAudioClip: {fileID: 8300000, guid: ccab19255b3bd54478d088362a18a858, type: 3}
+  impactAudioClip: {fileID: 8300000, guid: 1b0a8fbad234cf549b8e71424344cfcb, type: 3}
+  elementColor: {r: 0.7, g: 0.45, b: 1, a: 1}
+  ownerTintAmount: 0.42
+  ownerTintVisibilityBoost: 0.15
+  effectTintMaxBrightness: 0.9
+  colorBlendLuminanceMultiplier: 0.72
+  castMarkerScale: 0.58
+  telegraphTileScale: 1
+  impactScale: 0.4
+  impactLevel3ScaleMultiplier: 1.5
+  impactLevel5ScaleMultiplier: 2
+  auraScale: 1
+  impactSurfaceOffset: 0.18
+  impactPlaybackSpeed: 1
+  impactVisualLeadSeconds: 0
+  impactLifetimeSeconds: 1
+  auraLifetimeSeconds: 1
