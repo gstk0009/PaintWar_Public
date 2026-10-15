@@ -319,7 +319,7 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
     {
         // 요청한 owner가 보낸 connection의 등록된 PaintOwner와 맞는지 검증합니다.
         PaintOwner owner = (PaintOwner)message.Owner;
-        if (NetworkRoundController.HasInstance &&
+        if (!NetworkRoundController.HasInstance ||
             !NetworkRoundController.Instance.IsOwnerAllowed(connection, owner))
         {
             return;
@@ -336,15 +336,10 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
         ForceTileOwnerRequestBroadcast message,
         Channel channel)
     {
-        PaintOwner owner = (PaintOwner)message.Owner;
-        if (owner != PaintOwner.Neutral &&
-            NetworkRoundController.HasInstance &&
-            !NetworkRoundController.Instance.IsOwnerAllowed(connection, owner))
-        {
-            return;
-        }
-
-        ApplyServerForceSetAndBroadcast(new Vector2Int(message.X, message.Y), owner);
+        // Force-set changes are server-authoritative maintenance operations.
+        // Never accept a client-supplied owner, including Neutral.
+        // Server code can call RequestForceSetOwner directly.
+        return;
     }
 
     private void OnTileSnapshotRequest(
