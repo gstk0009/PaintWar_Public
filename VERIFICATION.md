@@ -1,5 +1,20 @@
 # Tile authority fix verification
 
+## Folder and comment synchronization — 2026-10-22
+
+The public extract matches all 202 runtime C# source files in the full project,
+including file paths under `LGH/Scripts` (137 files) and `CSE` (65 files).
+Editor sources, tests, Unity metadata, and project assets are excluded from this
+extract. The existing server tile-authority fixes are preserved in both copies.
+
+The synchronized full project was checked with Unity 6000.3.11f1 EditMode tests:
+all 26 passed, with no failures or skipped tests. This confirms compilation and
+the focused automated regressions; no new live multiplayer run is claimed.
+
+See [the script folder guide](LGH/Scripts/README.md) for the functional layout.
+
+## Authority regression coverage
+
 This repository is a code extract. Changes were first reviewed and tested in the
 full Unity 6000.3.11f1 source project, where **26 EditMode tests passed**: 6 territory
 BFS tests, 13 Bot decision tests, and 7 connection/authority regressions.
