@@ -249,9 +249,16 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
 
     public bool RequestForceSetOwner(Vector2Int index, PaintOwner owner)
     {
+        // Kept for existing effects. Remote clients must never submit final tile owners.
+        return ServerForceSetOwner(index, owner);
+    }
+
+    public bool ServerForceSetOwner(Vector2Int index, PaintOwner owner)
+    {
         CacheComponents();
         CacheNetworkManager();
-        if (!CanForceSetRequest(index))
+        if (!IsServerInitialized || !CanForceSetRequest(index) ||
+            owner < PaintOwner.Neutral || owner > PaintOwner.Player4)
         {
             return false;
         }
@@ -262,23 +269,7 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
             return false;
         }
 
-        if (IsServerInitialized)
-        {
-            return ApplyServerForceSetAndBroadcast(index, owner);
-        }
-
-        if (networkManager == null || !networkManager.IsClientStarted)
-        {
-            return false;
-        }
-
-        networkManager.ClientManager.Broadcast(new ForceTileOwnerRequestBroadcast
-        {
-            X = index.x,
-            Y = index.y,
-            Owner = (int)owner
-        });
-        return true;
+        return ApplyServerForceSetAndBroadcast(index, owner);
     }
 
     public bool ServerForceSetOwnerIgnoringProtection(Vector2Int index, PaintOwner owner)
@@ -319,7 +310,10 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
     {
         // 요청한 owner가 보낸 connection의 등록된 PaintOwner와 맞는지 검증합니다.
         PaintOwner owner = (PaintOwner)message.Owner;
-        if (NetworkRoundController.HasInstance &&
+        if (!IsServerInitialized || connection == null ||
+            !connection.IsActive || !connection.IsAuthenticated ||
+            owner < PaintOwner.Player1 || owner > PaintOwner.Player4 ||
+            !NetworkRoundController.HasInstance ||
             !NetworkRoundController.Instance.IsOwnerAllowed(connection, owner))
         {
             return;
@@ -336,15 +330,8 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
         ForceTileOwnerRequestBroadcast message,
         Channel channel)
     {
-        PaintOwner owner = (PaintOwner)message.Owner;
-        if (owner != PaintOwner.Neutral &&
-            NetworkRoundController.HasInstance &&
-            !NetworkRoundController.Instance.IsOwnerAllowed(connection, owner))
-        {
-            return;
-        }
-
-        ApplyServerForceSetAndBroadcast(new Vector2Int(message.X, message.Y), owner);
+        // Keep the legacy wire message registered so older/malicious clients are
+        // safely ignored. Validated server gameplay effects use ServerForceSetOwner.
     }
 
     private void OnTileSnapshotRequest(
@@ -624,7 +611,7 @@ public sealed class NetworkTilePaintAuthority : MonoBehaviour
 
         networkManager.ServerManager.RegisterBroadcast<TileClaimRequestBroadcast>(
             OnTileClaimRequest,
-            false);
+            true);
         networkManager.ServerManager.RegisterBroadcast<ForceTileOwnerRequestBroadcast>(
             OnForceTileOwnerRequest,
             false);

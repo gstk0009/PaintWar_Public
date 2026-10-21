@@ -38,7 +38,8 @@ public sealed class NetworkRoundPlayerRegistry
             return false;
         }
 
-        if (!registeredPlayers.TryGetValue(conn.ClientId, out RegisteredPlayer player))
+        if (!registeredPlayers.TryGetValue(conn.ClientId, out RegisteredPlayer player) ||
+            !object.ReferenceEquals(player.Connection, conn))
         {
             return false;
         }
@@ -50,7 +51,10 @@ public sealed class NetworkRoundPlayerRegistry
     public bool IsOwnerAllowed(NetworkConnection conn, PaintOwner owner)
     {
         // client가 다른 PaintOwner로 행동하지 못하게 tile/item RPC에서 사용합니다.
-        return TryGetOwner(conn, out PaintOwner registeredOwner) && registeredOwner == owner;
+        return conn != null && conn.IsActive && conn.IsAuthenticated &&
+               registeredPlayers.TryGetValue(conn.ClientId, out RegisteredPlayer player) &&
+               object.ReferenceEquals(player.Connection, conn) && player.PlayerObject != null &&
+               owner >= PaintOwner.Player1 && owner <= PaintOwner.Player4 && player.Owner == owner;
     }
 
     public bool TryGetRegisteredOwner(NetworkConnection conn, out PaintOwner owner)

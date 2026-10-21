@@ -392,6 +392,8 @@ public class NetworkRoundController : MonoBehaviour
         // 씬 로드나 재접속 뒤 재연결될 수 있으므로 기존 owner 배정을 유지합니다.
         if (playerRegistry.TryGetRegisteredOwner(conn, out PaintOwner existingOwner))
         {
+            // Scene respawns keep the colour but must replace the old player-object reference.
+            playerRegistry.Register(conn, playerObject, existingOwner);
             ApplyOwner(playerObject, existingOwner);
 
             if (GameRoundManager.HasInstance &&
