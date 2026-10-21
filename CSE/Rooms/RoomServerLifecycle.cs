@@ -2,10 +2,8 @@ using FishNet;
 using FishNet.Transporting;
 using UnityEngine;
 
-/// <summary>
-/// room-server process의 수명 감시자입니다.
-/// master가 읽을 heartbeat를 쓰고 startup/empty-room/game-over timeout이 지나면 room을 종료합니다.
-/// </summary>
+// room-server process의 수명 감시자입니다.
+// master가 읽을 heartbeat를 쓰고 startup/empty-room/game-over timeout이 지나면 room을 종료합니다.
 public sealed class RoomServerLifecycle : MonoBehaviour
 {
     private const string HostObjectName = "Room Server Lifecycle";
@@ -29,10 +27,8 @@ public sealed class RoomServerLifecycle : MonoBehaviour
     // GamePhase가 아직 RoundResult여도 master에는 FinalResult를 계속 보고합니다.
     private bool finalResultStarted;
 
-    /// <summary>
-    /// 최종 결과 UI가 시작되는 순간 server의 GameRoundManager에서 호출합니다.
-    /// room process는 계속 유지하지만 master가 이 방을 재접속 대상으로 사용하지 않게 합니다.
-    /// </summary>
+    // 최종 결과 UI가 시작되는 순간 server의 GameRoundManager에서 호출합니다.
+    // room process는 계속 유지하지만 master가 이 방을 재접속 대상으로 사용하지 않게 합니다.
     public void NotifyFinalResultStarted()
     {
         if (!ServerLaunchMode.IsRoomServer)

@@ -3,19 +3,8 @@ using System.Collections.Generic;
 using FishNet;
 using UnityEngine;
 
-/// <summary>
-/// ????쒖뒪?쒖쑝濡??ㅼ뼱?ㅻ뒗 湲곗〈 public API瑜??좎??섎뒗 facade?낅땲??
-/// ?ㅼ젣 ?곗씠?곕뒗 TileGridState, 醫뚰몴 蹂?섏? TileGridMapper, ?쒖떆??TilePaintView,
-/// 湲곕낯 ?먮졊 洹쒖튃? TileClaimRules???꾩엫?⑸땲??
-/// </summary>
-/// <summary>
-/// ????쒖뒪?쒖쓽 湲곗〈 public API瑜??좎??섎뒗 facade?낅땲??
-/// ?ㅼ젣 ?곗씠?곕뒗 TileGridState, 醫뚰몴 蹂?섏? TileGridMapper, ?붾㈃ ?쒖떆??TilePaintView, ?먮졊 洹쒖튃? TileClaimService/TileClaimRules媛 ?대떦?⑸땲??
-/// </summary>
-/// <summary>
-/// 타일 grid 데이터, world/grid 변환, owner material 조회, local tile owner 적용을 감싸는 facade입니다.
-/// 네트워크 모드에서는 플레이어 점령 요청을 local 적용 전에 NetworkTilePaintAuthority로 보냅니다.
-/// </summary>
+// 타일 grid 데이터, world/grid 변환, owner material 조회, local tile owner 적용을 감싸는 facade입니다.
+// 네트워크 모드에서는 플레이어 점령 요청을 local 적용 전에 NetworkTilePaintAuthority로 보냅니다.
 public class TilePaintManager : MonoBehaviour
 {
     public static TilePaintManager Instance { get; private set; }
@@ -87,7 +76,6 @@ public class TilePaintManager : MonoBehaviour
     {
         get
         {
-            // ?ㅽ듃?뚰겕 紐⑤뱶?먯꽌???대씪?댁뼵?몄쓽 吏곸젒 ?먮졊??留됯퀬 NetworkTilePaintAuthority濡??붿껌??蹂대깄?덈떎.
             // 네트워크 모드에서는 클라이언트가 NetworkTilePaintAuthority로 점령 요청을 보냅니다.
             return routeClaimsThroughNetworkAuthority
                 && NetworkTilePaintAuthority.HasInstance
@@ -115,7 +103,6 @@ public class TilePaintManager : MonoBehaviour
         }
 
         // tile manager가 있으면 이 씬에 round system도 준비되어 있는지 확인합니다.
-        // ???留ㅻ땲?媛 議댁옱?섎뒗 ?ъ씠硫??쇱슫???쒖뒪?쒕룄 ?먮룞?쇰줈 以鍮꾪빀?덈떎.
         RoundSystemBootstrap.EnsureForActiveScene();
     }
 
@@ -161,9 +148,6 @@ public class TilePaintManager : MonoBehaviour
         return mapper.GetGridIndex(worldPos);
     }
 
-    /// <summary>
-    /// 媛쒕퀎 ????뚮뜑?щ? ?깅줉?섍린 ?꾩뿉 TileGenerator媛 ?몄텧?⑸땲??
-    /// </summary>
     public void PrepareGrid(int size, float tSize, Vector3 origin)
     {
         // TileGenerator가 개별 renderer를 등록하기 전에 호출합니다.
@@ -177,10 +161,6 @@ public class TilePaintManager : MonoBehaviour
         view.Prepare(size);
     }
 
-    /// <summary>
-    /// ?앹꽦??????뚮뜑?щ? 醫뚰몴??留욊쾶 ?깅줉?⑸땲??
-    /// ?댄썑 ?먮졊 ?됱긽 蹂寃쎌? TilePaintView??罹먯떆???뚮뜑?щ? ?듯빐 泥섎━?⑸땲??
-    /// </summary>
     public void RegisterTileRenderer(int x, int z, Renderer rend)
     {
         // owner 변경 시 매 프레임 검색 없이 material을 바꿀 수 있도록 renderer를 한 번 cache합니다.
@@ -213,10 +193,8 @@ public class TilePaintManager : MonoBehaviour
         return TryClaimNeutralByGridIndexLocal(GetGridIndex(worldPosition), attacker);
     }
 
-    /// <summary>
-    /// Movement-only claim path. Walking can claim neutral tiles but can never
-    /// modify a tile already owned by any player.
-    /// </summary>
+    // Movement-only claim path. Walking can claim neutral tiles but can never
+    // modify a tile already owned by any player.
     public bool TryClaimNeutralByGridIndexLocal(Vector2Int index, PaintOwner attacker)
     {
         if (attacker == PaintOwner.Neutral || !IsTilePaintable(index))
@@ -239,11 +217,6 @@ public class TilePaintManager : MonoBehaviour
         return SetTileOwnerLocal(index, attacker);
     }
 
-    /// <summary>
-    /// 湲곕낯 2?④퀎 ???洹쒖튃???곸슜?⑸땲??
-    /// 以묐┰ -> 怨듦꺽?? ?????-> 以묐┰, ?????-> 蹂寃??놁쓬 ?쒖꽌?낅땲??
-    /// 寃쏀뿕移? ??????쒕젅???깆? TileClaimService?먯꽌 泥섎━?⑸땲??
-    /// </summary>
     public bool TryClaimByGridIndex(Vector2Int index, PaintOwner attacker)
     {
         // 이동 polling이 같은 내 타일을 여러 번 찍을 수 있으므로 no-op 요청은 일찍 건너뜁니다.
@@ -262,10 +235,6 @@ public class TilePaintManager : MonoBehaviour
         return TryClaimByGridIndexLocal(index, attacker);
     }
 
-    /// <summary>
-    /// ?ㅽ듃?뚰겕 RPC瑜?嫄곗튂吏 ?딄퀬 ?꾩옱 濡쒖뺄 ?곹깭??利됱떆 湲곕낯 ?먮졊 洹쒖튃???곸슜?⑸땲??
-    /// NetworkTilePaintAuthority???쒕쾭 寃利앷낵 TileClaimService ?대? 泥섎━?먯꽌 ?ъ슜?⑸땲??
-    /// </summary>
     public bool TryClaimByGridIndexLocal(Vector2Int index, PaintOwner attacker)
     {
         // 서버, 오프라인 테스트, 검증된 네트워크 delta가 사용하는 local 적용 경로입니다.
@@ -464,9 +433,6 @@ public class TilePaintManager : MonoBehaviour
         return view.GetOwnerMaterial(owner);
     }
 
-    /// <summary>
-    /// ?쒕쾭 RPC 寃곌낵??濡쒖뺄 洹쒖튃 寃곌낵泥섎읆 ?대? 寃利앸맂 ???owner 蹂寃쎌쓣 濡쒖뺄 ?곹깭? ?쒖떆 ?묒そ??諛섏쁺?⑸땲??
-    /// </summary>
     public bool SetTileOwnerLocal(Vector2Int index, PaintOwner newOwner)
     {
         // HUD/카운팅 코드와 시각 표시가 어긋나지 않도록 state와 view를 함께 갱신합니다.

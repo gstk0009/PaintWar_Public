@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-/// <summary>
-/// Editor-authored, pooled tile preview used while the local player aims a skill.
-/// </summary>
+// Editor-authored, pooled tile preview used while the local player aims a skill.
 public sealed class SkillAimAreaVisual : MonoBehaviour
 {
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");

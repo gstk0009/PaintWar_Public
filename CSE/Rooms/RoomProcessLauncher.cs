@@ -5,10 +5,8 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-/// <summary>
-/// 별도 room-server process를 실행, 추적, 정리하는 master-server 컴포넌트입니다.
-/// 하나의 room process는 하나의 match를 담당하고, master는 재접속용 user-room 배정을 보관합니다.
-/// </summary>
+// 별도 room-server process를 실행, 추적, 정리하는 master-server 컴포넌트입니다.
+// 하나의 room process는 하나의 match를 담당하고, master는 재접속용 user-room 배정을 보관합니다.
 public sealed class RoomProcessLauncher : MonoBehaviour
 {
     [SerializeField] private int maxActiveRooms = 2;

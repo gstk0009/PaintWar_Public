@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-/// <summary>
-/// 배치형 무기의 임시 클라이언트 측 예고 표시입니다.
-/// marker를 즉시 보여주고 폭발 직전에 영향 타일을 표시한 뒤 작은 pool로 돌아갑니다.
-/// </summary>
+// 배치형 무기의 임시 클라이언트 측 예고 표시입니다.
+// marker를 즉시 보여주고 폭발 직전에 영향 타일을 표시한 뒤 작은 pool로 돌아갑니다.
 public sealed class WeaponPlacementVisual : MonoBehaviour
 {
     private const int MaxPooledRangeIndicators = 128;

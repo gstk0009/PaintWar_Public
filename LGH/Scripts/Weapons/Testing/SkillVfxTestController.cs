@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-/// <summary>
-/// Editor-authored SkillTestScene에서 실제 WeaponData/VFX Profile을 미리 봅니다.
-/// UI와 타일은 씬에 저장되며 런타임에는 데이터와 버튼 상태만 갱신합니다.
-/// </summary>
+// Editor-authored SkillTestScene에서 실제 WeaponData/VFX Profile을 미리 봅니다.
+// UI와 타일은 씬에 저장되며 런타임에는 데이터와 버튼 상태만 갱신합니다.
 [DisallowMultipleComponent]
 public sealed class SkillVfxTestController : MonoBehaviour
 {

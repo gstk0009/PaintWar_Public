@@ -5,11 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 #endif
 
-/// <summary>
-/// Offline comparison harness for joystick direction filtering. The authored test scene
-/// supplies the real player prefab, joystick, and UI; this component only binds input
-/// and updates values which change during play.
-/// </summary>
+// Offline comparison harness for joystick direction filtering. The authored test scene
+// supplies the real player prefab, joystick, and UI; this component only binds input
+// and updates values which change during play.
 public sealed class PlayerMovementFeelTestController : MonoBehaviour
 {
     private static readonly int IsRunHash = Animator.StringToHash("isRun");

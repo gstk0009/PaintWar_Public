@@ -5,10 +5,8 @@ using FishNet.Object.Synchronizing;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Runtime weapon controller for players and bots.
-/// Core ownership/input logic stays here; cooldown, placement and UI live in partial files.
-/// </summary>
+// Runtime weapon controller for players and bots.
+// Core ownership/input logic stays here; cooldown, placement and UI live in partial files.
 public partial class WeaponRuntimeController : NetworkBehaviour
 {
     private static readonly Dictionary<string, WeaponData> WeaponLookup = new Dictionary<string, WeaponData>();
@@ -423,10 +421,8 @@ public partial class WeaponRuntimeController : NetworkBehaviour
         return TryPlaceEquippedWeapon();
     }
 
-    /// <summary>
-    /// 네트워크 권한이나 재사용 대기시간 없이 실제 배치 VFX 경로를 재생합니다.
-    /// SkillTestScene의 에셋 조정 용도이며 게임 타일 소유권은 변경하지 않습니다.
-    /// </summary>
+    // 네트워크 권한이나 재사용 대기시간 없이 실제 배치 VFX 경로를 재생합니다.
+    // SkillTestScene의 에셋 조정 용도이며 게임 타일 소유권은 변경하지 않습니다.
     public bool PreviewEquippedWeaponVisual(int playerLevel)
     {
         WeaponData weapon = EquippedWeapon;

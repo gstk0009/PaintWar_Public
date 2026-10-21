@@ -534,20 +534,15 @@ public class GuideBookUI : MonoBehaviour
     // FLIP PAGE - RIGHT
     // =========================================================
 
-    /// <summary>
-    /// FlipPage를 오른쪽 페이지로 사용.
-    ///
-    /// Pivot:
-    /// 왼쪽 끝 = 책 중앙
-    ///
-    /// 화면:
-    ///
-    ///      책 중앙
-    ///         ↓
-    /// --------|████████
-    ///         ↑
-    ///       Pivot
-    /// </summary>
+    // FlipPage를 오른쪽 페이지로 사용.
+    // Pivot:
+    // 왼쪽 끝 = 책 중앙
+    // 화면:
+    // 책 중앙
+    // ↓
+    // --------|████████
+    // ↑
+    // Pivot
     private void SetupFlipPageRight()
     {
         if (flipPage == null)
@@ -581,18 +576,13 @@ public class GuideBookUI : MonoBehaviour
     // FLIP PAGE - LEFT
     // =========================================================
 
-    /// <summary>
-    /// FlipPage를 왼쪽 페이지로 사용.
-    ///
-    /// Pivot:
-    /// 오른쪽 끝 = 책 중앙
-    ///
-    /// 화면:
-    ///
-    /// ████████|--------
-    ///         ↑
-    ///       Pivot
-    /// </summary>
+    // FlipPage를 왼쪽 페이지로 사용.
+    // Pivot:
+    // 오른쪽 끝 = 책 중앙
+    // 화면:
+    // ████████|--------
+    // ↑
+    // Pivot
     private void SetupFlipPageLeft()
     {
         if (flipPage == null)
@@ -659,10 +649,8 @@ public class GuideBookUI : MonoBehaviour
     // BUTTON VISIBILITY
     // =========================================================
 
-    /// <summary>
-    /// 페이지 Flip 중에는 버튼을
-    /// 아예 화면에서 숨긴다.
-    /// </summary>
+    // 페이지 Flip 중에는 버튼을
+    // 아예 화면에서 숨긴다.
     private void SetButtonsVisible(
         bool visible)
     {

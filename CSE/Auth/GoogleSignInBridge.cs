@@ -7,12 +7,10 @@ using Firebase.Extensions;
 using Google;
 #endif
 
-/// <summary>
-/// Thin adapter for Google Sign-In.
-/// When the Google Sign-In Unity plugin is imported and GOOGLE_SIGN_IN is added
-/// to scripting define symbols, this class requests a Google ID token that can
-/// be exchanged for a Firebase credential.
-/// </summary>
+// Thin adapter for Google Sign-In.
+// When the Google Sign-In Unity plugin is imported and GOOGLE_SIGN_IN is added
+// to scripting define symbols, this class requests a Google ID token that can
+// be exchanged for a Firebase credential.
 public static class GoogleSignInBridge
 {
     private const int SignInTimeoutMilliseconds = 20000;

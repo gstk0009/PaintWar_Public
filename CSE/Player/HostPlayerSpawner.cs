@@ -7,10 +7,8 @@ using FishNet.Transporting;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 게임 씬에서 인간 플레이어 오브젝트를 생성하는 서버 측 spawner입니다.
-/// 로비 roster slot을 PaintOwner로 매핑하고 room server용 짧은 재접속 snapshot을 보관합니다.
-/// </summary>
+// 게임 씬에서 인간 플레이어 오브젝트를 생성하는 서버 측 spawner입니다.
+// 로비 roster slot을 PaintOwner로 매핑하고 room server용 짧은 재접속 snapshot을 보관합니다.
 public class HostPlayerSpawner : MonoBehaviour
 {
     private const float RoomAdmissionProfileTimeoutSeconds = 5f;

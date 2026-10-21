@@ -6,7 +6,6 @@ using UnityEngine;
 
 public readonly struct RoomRuntimeStatus
 {
-    // heartbeat timestamp??UTC??master媛 process ?ъ떆???꾩뿉??child ?곹깭瑜?鍮꾧탳?????덉뒿?덈떎.
     public readonly DateTime HeartbeatUtc;
     public readonly int ClientCount;
     public readonly string State;
@@ -19,9 +18,6 @@ public readonly struct RoomRuntimeStatus
     }
 }
 
-/// <summary>
-/// room server媛 ?곌퀬 master launcher媛 ?쎈뒗 heartbeat ?뚯씪 ??μ냼?낅땲??
-/// </summary>
 public static class RoomRuntimeStatusStore
 {
     public static void Write(string roomId, int clientCount, string state)
@@ -125,7 +121,6 @@ public static class RoomRuntimeStatusStore
 
 public static class RoomConnectionProfileCache
 {
-    // FishNet client id?먯꽌 ?덉젙?곸씤 profile user id濡??댁뼱吏???쒕쾭 痢??꾩떆 留ㅽ븨?낅땲??
     private static readonly Dictionary<int, string> userIdsByClientId =
         new Dictionary<int, string>();
 

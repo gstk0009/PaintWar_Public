@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 타일 Renderer 캐시와 owner별 Material 적용만 담당합니다.
-/// 타일 소유자 데이터와 점령 규칙은 TileGridState/TileClaimRules가 처리합니다.
-/// </summary>
+// 타일 Renderer 캐시와 owner별 Material 적용만 담당합니다.
+// 타일 소유자 데이터와 점령 규칙은 TileGridState/TileClaimRules가 처리합니다.
 public sealed class TilePaintView
 {
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");

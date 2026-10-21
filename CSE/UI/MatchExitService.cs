@@ -4,10 +4,8 @@ using FishNet;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// 최종 결과 화면과 관전 화면에서 로비로 안전하게 복귀시키는 공용 경로입니다.
-/// 별도 패널이나 씬 오브젝트 없이 동작합니다.
-/// </summary>
+// 최종 결과 화면과 관전 화면에서 로비로 안전하게 복귀시키는 공용 경로입니다.
+// 별도 패널이나 씬 오브젝트 없이 동작합니다.
 public static class MatchExitService
 {
     private const string LobbySceneName = "LobbyScene";

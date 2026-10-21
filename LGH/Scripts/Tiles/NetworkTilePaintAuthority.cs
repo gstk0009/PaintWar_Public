@@ -48,10 +48,8 @@ public struct TileGridSnapshotBroadcast : IBroadcast
     public bool[] Destroyed;
 }
 
-/// <summary>
-/// 네트워크 매치에서 타일 소유권을 담당하는 서버 authority입니다.
-/// 클라이언트가 변경을 요청하면 서버가 owner/라운드 규칙을 검증한 뒤 delta 또는 전체 snapshot을 broadcast합니다.
-/// </summary>
+// 네트워크 매치에서 타일 소유권을 담당하는 서버 authority입니다.
+// 클라이언트가 변경을 요청하면 서버가 owner/라운드 규칙을 검증한 뒤 delta 또는 전체 snapshot을 broadcast합니다.
 public sealed class NetworkTilePaintAuthority : MonoBehaviour
 {
     public static NetworkTilePaintAuthority Instance { get; private set; }

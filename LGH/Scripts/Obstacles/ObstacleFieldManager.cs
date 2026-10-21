@@ -26,10 +26,8 @@ public struct ObstacleDestroyedBatchBroadcast : IBroadcast
     public byte FinalCountdownActive;
 }
 
-/// <summary>
-/// Builds a deterministic obstacle field from the server match seed.
-/// Only the server may mutate the field; clients receive destruction batches/snapshots.
-/// </summary>
+// Builds a deterministic obstacle field from the server match seed.
+// Only the server may mutate the field; clients receive destruction batches/snapshots.
 [DisallowMultipleComponent]
 public sealed class ObstacleFieldManager : MonoBehaviour
 {
@@ -265,9 +263,7 @@ public sealed class ObstacleFieldManager : MonoBehaviour
         return true;
     }
 
-    /// <summary>
-    /// Server-side bomb integration point. Call once when an authoritative explosion resolves.
-    /// </summary>
+    // Server-side bomb integration point. Call once when an authoritative explosion resolves.
     public int ServerDestroyInRadius(Vector3 worldPosition, float radius)
     {
         if (!CanMutateAuthoritatively() ||
@@ -319,10 +315,8 @@ public sealed class ObstacleFieldManager : MonoBehaviour
         return destructionBuffer.Count;
     }
 
-    /// <summary>
-    /// Server-side skill integration point. Destroys breakable obstacles on the
-    /// exact tiles resolved by the authoritative skill pattern and broadcasts once.
-    /// </summary>
+    // Server-side skill integration point. Destroys breakable obstacles on the
+    // exact tiles resolved by the authoritative skill pattern and broadcasts once.
     public int ServerDestroyAtGridIndices(IEnumerable<Vector2Int> gridIndices)
     {
         if (!CanMutateAuthoritatively() ||

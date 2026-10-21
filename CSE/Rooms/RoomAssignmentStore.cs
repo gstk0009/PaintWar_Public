@@ -9,10 +9,8 @@ public struct RoomConnectionTarget
     public float ReconnectGraceSeconds;
 }
 
-/// <summary>
-/// 마지막으로 배정된 room을 저장하는 클라이언트 측 PlayerPrefs 저장소입니다.
-/// 짧은 모바일 앱 재시작 후 matchmaking 전에 room 재접속을 시도할 수 있게 합니다.
-/// </summary>
+// 마지막으로 배정된 room을 저장하는 클라이언트 측 PlayerPrefs 저장소입니다.
+// 짧은 모바일 앱 재시작 후 matchmaking 전에 room 재접속을 시도할 수 있게 합니다.
 public static class RoomAssignmentStore
 {
     private const string RoomIdKey = "PaintWar.RoomAssignment.RoomId";

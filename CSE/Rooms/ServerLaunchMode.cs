@@ -13,10 +13,8 @@ public enum PaintWarServerRole
     Room
 }
 
-/// <summary>
-/// PaintWar 전용 서버 command-line argument를 파싱하고 FishNet transport port를 적용합니다.
-/// master와 room process는 같은 실행 파일을 사용하며, 이 클래스가 runtime role을 결정합니다.
-/// </summary>
+// PaintWar 전용 서버 command-line argument를 파싱하고 FishNet transport port를 적용합니다.
+// master와 room process는 같은 실행 파일을 사용하며, 이 클래스가 runtime role을 결정합니다.
 public static class ServerLaunchMode
 {
     public const string DefaultPublicAddress = "158.180.89.56";
@@ -30,9 +28,7 @@ public static class ServerLaunchMode
     private const string PublicAddressArg = "-paintwarPublicAddress";
     private const string RoomTimeoutArg = "-paintwarRoomMatchTimeout";
 
-    /// <summary>
-    /// 현재 process role입니다. Batch mode는 기본 master라 배포된 headless build가 matchmaking mode로 시작합니다.
-    /// </summary>
+    // 현재 process role입니다. Batch mode는 기본 master라 배포된 headless build가 matchmaking mode로 시작합니다.
     public static PaintWarServerRole Role
     {
         get

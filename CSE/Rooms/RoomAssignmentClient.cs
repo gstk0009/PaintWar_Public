@@ -4,10 +4,8 @@ using System.Collections;
 using UnityEngine;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
-/// <summary>
-/// master matchmaking server에서 배정된 room server로 클라이언트를 이동시키는 클라이언트 측 전환 담당자입니다.
-/// 짧은 앱 재시작 후 같은 room으로 재접속할 수 있도록 room assignment를 PlayerPrefs에 보관합니다.
-/// </summary>
+// master matchmaking server에서 배정된 room server로 클라이언트를 이동시키는 클라이언트 측 전환 담당자입니다.
+// 짧은 앱 재시작 후 같은 room으로 재접속할 수 있도록 room assignment를 PlayerPrefs에 보관합니다.
 public sealed class RoomAssignmentClient : MonoBehaviour
 {
     private const int MasterReconnectAttempts = 15;

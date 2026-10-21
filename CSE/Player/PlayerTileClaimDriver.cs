@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-/// <summary>
-/// PlayerMovement에서 타일 점령 체크만 분리한 helper입니다.
-/// MonoBehaviour가 아니므로 프리팹 수정 없이 PlayerMovement가 직접 생성해서 사용합니다.
-/// </summary>
+// PlayerMovement에서 타일 점령 체크만 분리한 helper입니다.
+// MonoBehaviour가 아니므로 프리팹 수정 없이 PlayerMovement가 직접 생성해서 사용합니다.
 public sealed class PlayerTileClaimDriver
 {
     // 현재 플레이어 위치입니다. 매 프레임 transform 검색을 하지 않도록 생성 시점에 받습니다.
@@ -23,18 +21,14 @@ public sealed class PlayerTileClaimDriver
         this.ownerProvider = ownerProvider;
     }
 
-    /// <summary>
-    /// 라운드 배치나 owner 초기화 뒤 이전 타일 캐시를 비웁니다.
-    /// </summary>
+    // 라운드 배치나 owner 초기화 뒤 이전 타일 캐시를 비웁니다.
     public void Reset()
     {
         lastTileIndex = new Vector2Int(-1, -1);
         nextPaintRetryTime = 0f;
     }
 
-    /// <summary>
-    /// 현재 위치의 타일 owner를 확인하고 필요할 때만 점령 요청을 보냅니다.
-    /// </summary>
+    // 현재 위치의 타일 owner를 확인하고 필요할 때만 점령 요청을 보냅니다.
     public void Tick(float paintRetryInterval)
     {
         if (!TilePaintManager.HasInstance || playerTransform == null || ownerProvider == null)

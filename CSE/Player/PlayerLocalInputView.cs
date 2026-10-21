@@ -2,10 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 씬에 배치된 로컬 입력 UI 참조를 보관합니다.
-/// 네트워크로 spawn되는 player prefab은 씬 오브젝트를 직접 serialize할 수 없어서 이 view를 먼저 조회합니다.
-/// </summary>
+// 씬에 배치된 로컬 입력 UI 참조를 보관합니다.
+// 네트워크로 spawn되는 player prefab은 씬 오브젝트를 직접 serialize할 수 없어서 이 view를 먼저 조회합니다.
 public sealed class PlayerLocalInputView : MonoBehaviour
 {
     public static PlayerLocalInputView Instance { get; private set; }

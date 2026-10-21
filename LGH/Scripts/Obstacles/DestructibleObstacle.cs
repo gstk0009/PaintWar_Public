@@ -1,9 +1,7 @@
 using UnityEngine;
 
-/// <summary>
-/// Bomb implementations can call either overload of TryDestroyFromBomb on the server.
-/// The field manager owns authority, replication, and contained-item spawning.
-/// </summary>
+// Bomb implementations can call either overload of TryDestroyFromBomb on the server.
+// The field manager owns authority, replication, and contained-item spawning.
 [DisallowMultipleComponent]
 public sealed class DestructibleObstacle : MonoBehaviour
 {

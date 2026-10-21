@@ -5,10 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// local owner에게만 필요한 카메라, joystick, teleport 버튼 연결을 담당합니다.
-/// NetworkBehaviour가 아니므로 네트워크 RPC 선언과 로컬 UI 책임을 분리할 수 있습니다.
-/// </summary>
+// local owner에게만 필요한 카메라, joystick, teleport 버튼 연결을 담당합니다.
+// NetworkBehaviour가 아니므로 네트워크 RPC 선언과 로컬 UI 책임을 분리할 수 있습니다.
 public sealed class PlayerLocalOwnerControls
 {
     private readonly Transform target;
@@ -40,9 +38,7 @@ public sealed class PlayerLocalOwnerControls
         this.joystickAssigned = joystickAssigned;
     }
 
-    /// <summary>
-    /// local owner가 준비되면 카메라를 붙이고 조작 UI 연결 대기를 시작합니다.
-    /// </summary>
+    // local owner가 준비되면 카메라를 붙이고 조작 UI 연결 대기를 시작합니다.
     public void Initialize()
     {
         AttachCamera();
@@ -54,9 +50,7 @@ public sealed class PlayerLocalOwnerControls
         InitializeUIDelayedAsync(initializeCts.Token).Forget();
     }
 
-    /// <summary>
-    /// ownership을 잃거나 client가 멈출 때 local UI 연결을 정리합니다.
-    /// </summary>
+    // ownership을 잃거나 client가 멈출 때 local UI 연결을 정리합니다.
     public void Clear()
     {
         CancelInitialize();
@@ -92,9 +86,7 @@ public sealed class PlayerLocalOwnerControls
         }
     }
 
-    /// <summary>
-    /// scene 전환 직후 UI가 늦게 준비될 수 있어 joystick이 잡힐 때까지 UniTask로 짧게 재시도합니다.
-    /// </summary>
+    // scene 전환 직후 UI가 늦게 준비될 수 있어 joystick이 잡힐 때까지 UniTask로 짧게 재시도합니다.
     private async UniTaskVoid InitializeUIDelayedAsync(CancellationToken cancellationToken)
     {
         Joystick foundJoystick = null;

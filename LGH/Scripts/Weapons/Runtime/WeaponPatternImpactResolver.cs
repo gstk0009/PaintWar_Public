@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 플레이어, 봇, 원격 클라이언트 스킬이 동일한 서버 권한 타일 판정을 사용하게 합니다.
-/// 도달 가능한 타일 수집, 도색, 지뢰 연쇄, 회색 장애물 파괴 순서를 한곳에서 보장합니다.
-/// </summary>
+// 플레이어, 봇, 원격 클라이언트 스킬이 동일한 서버 권한 타일 판정을 사용하게 합니다.
+// 도달 가능한 타일 수집, 도색, 지뢰 연쇄, 회색 장애물 파괴 순서를 한곳에서 보장합니다.
 public static class WeaponPatternImpactResolver
 {
     public static int CollectReachableTiles(WeaponData weapon, Vector3 origin, Vector3 forward,
